@@ -13,6 +13,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="滚屏" Click="Btn_Rock_click_01"/>
+        </StackPanel>
         <d3:ChartPlotter x:Name="plotter" Margin="10,10,20,10" Grid.Row="1">
             <d3:ChartPlotter.VerticalAxis>
                 <d3:VerticalIntegerAxis />
