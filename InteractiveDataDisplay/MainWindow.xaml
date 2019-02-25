@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveDataDisplay"
+        xmlns:sg="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+        Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded_01">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <d3:ChartPlotter x:Name="plotter" Margin="10,10,20,10" Grid.Row="1">
+            <d3:ChartPlotter.VerticalAxis>
+                <d3:VerticalIntegerAxis />
+            </d3:ChartPlotter.VerticalAxis>
+
+            <d3:ChartPlotter.HorizontalAxis >
+                <d3:HorizontalIntegerAxis/>
+            </d3:ChartPlotter.HorizontalAxis>
+            <d3:Header Content="折线图"/>
+            <d3:VerticalAxisTitle Content="百分比"/>
+            <d3:HorizontalAxis Content="时间(s)"/>
+        </d3:ChartPlotter>
     </Grid>
 </Window>
