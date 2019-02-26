@@ -22,12 +22,12 @@ namespace InteractiveDataDisplay
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();//创建一个定时器
         private int currentSecond = 0;
 
-        bool rock = false;//标志是否滚屏
+        bool rock = true;//标志是否滚屏
         public MainWindow()
         {
             InitializeComponent();
         }
-        
+
         private void Window_Loaded_01(object sender, RoutedEventArgs e)
         {
             plotter.AddLineGraph(dataSource, Colors.Green, 3, "Percentage");
@@ -81,12 +81,15 @@ namespace InteractiveDataDisplay
                     xaxis = 0;
 
                 Debug.Write("{0}\n", yaxis.ToString());
-                plotter.Viewport.Visible = new System.Windows.Rect(xaxis, 0, group, yaxis);//主要注意这里一行
+                plotter.Viewport.Visible = new System.Windows.Rect(xaxis, 0, group, 108);//主要注意这里一行
             }
 
             currentSecond++;
         }
 
+        /**
+         *  滚屏点击事件
+         */
         private void Btn_Rock_click_01(object sender, EventArgs e)
         {
             if (rock)
@@ -96,6 +99,7 @@ namespace InteractiveDataDisplay
             else
             {
                 rock = true;
+                plotter.Viewport.FitToView();
             }
         }
     }
