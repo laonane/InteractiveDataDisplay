@@ -40,7 +40,7 @@ namespace InteractiveDataDisplay
 
         int xaxis = 0;
         int yaxis = 0;
-        int group = 20;//默认组距
+        int group = 10;//默认组距
 
         Queue q = new Queue();
         private void Timer_Tick_CPU(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace InteractiveDataDisplay
                 else
                     xaxis = 0;
 
-                Debug.Write("{0}\n", yaxis.ToString());
+                Debug.Write("yaxis = " + yaxis.ToString());
                 plotter.Viewport.Visible = new System.Windows.Rect(xaxis, 0, group, 108);//主要注意这里一行
             }
 
